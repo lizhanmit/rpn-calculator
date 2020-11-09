@@ -29,7 +29,6 @@ public class Utils {
 		try {
 			properties.load(inputStream);
 		} catch (IOException e) {
-			// TODO: log error
 			System.exit(1);
 		}
 	}
