@@ -62,4 +62,13 @@ public class RpnCalculator {
 		}
 		System.out.println();
 	}
+
+
+	public Stack<Double> getStack() {
+		return stack;
+	}
+
+	public Stack<List<Double>> getLogStack() {
+		return logStack;
+	}
 }
