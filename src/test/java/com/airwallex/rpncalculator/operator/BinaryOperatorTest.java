@@ -38,7 +38,7 @@ public class BinaryOperatorTest {
 		clearStack();
 		initStack();
 		
-		binaryOperator.process(3, "+", stack, logStack);
+		binaryOperator.process(2, "+", stack, logStack);
 		assertEquals(new Double(6.0), stack.peek());
 	}
 	
@@ -47,7 +47,7 @@ public class BinaryOperatorTest {
 		clearStack();
 		initStack();
 		
-		binaryOperator.process(3, "-", stack, logStack);
+		binaryOperator.process(2, "-", stack, logStack);
 		assertEquals(new Double(-2.0), stack.peek());
 	}
 	
@@ -56,7 +56,7 @@ public class BinaryOperatorTest {
 		clearStack();
 		initStack();
 		
-		binaryOperator.process(3, "*", stack, logStack);
+		binaryOperator.process(2, "*", stack, logStack);
 		assertEquals(new Double(8.0), stack.peek());
 	}
 	
@@ -65,7 +65,7 @@ public class BinaryOperatorTest {
 		clearStack();
 		initStack();
 		
-		binaryOperator.process(3, "/", stack, logStack);
+		binaryOperator.process(2, "/", stack, logStack);
 		assertEquals(new Double(0.5), stack.peek());
 	}
 	
@@ -74,15 +74,15 @@ public class BinaryOperatorTest {
 		clearStack();
 		stack.add(2.0);
 		
-		assertThrows("operator + (position: 5): insufficient parameters", InsufficientParamException.class, () -> binaryOperator.process(2, "+", stack, logStack));
+		assertThrows("operator + (position: 3): insufficient parameters", InsufficientParamException.class, () -> binaryOperator.process(1, "+", stack, logStack));
 	}
 	
 	@Test
-	public void illegalOperandExceptionShouldBeThrownWhenOnlyDivisorIsZero() {
+	public void illegalOperandExceptionShouldBeThrownWhenDivisorIsZero() {
 		clearStack();
 		stack.add(2.0);
 		stack.add(0.0);
 		
-		assertThrows("Divisor cannot be 0", IllegalOperandException.class, () -> binaryOperator.process(3, "/", stack, logStack));
+		assertThrows("Divisor cannot be 0", IllegalOperandException.class, () -> binaryOperator.process(2, "/", stack, logStack));
 	}
 }
