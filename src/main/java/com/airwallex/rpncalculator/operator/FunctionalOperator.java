@@ -34,6 +34,11 @@ public class FunctionalOperator implements Operator {
 		}
 	}
 
+	/**
+	 * Undo the previous operation.
+	 * @param stack The working stack that saves calculated result.
+	 * @param logStack The log stack that saves the history of the working stack.
+	 */
 	private static void undo(Stack<Double> stack, Stack<List<Double>> logStack) {
 		if (!stack.isEmpty()) {
 			stack.clear();
@@ -53,6 +58,11 @@ public class FunctionalOperator implements Operator {
 		}
 	}
 	
+	/**
+	 * Remove all items from the working stack, and save null to the log stack.
+	 * @param stack The working stack that saves calculated result.
+	 * @param logStack The log stack that saves the history of the working stack.
+	 */
 	private static void clear(Stack<Double> stack, Stack<List<Double>> logStack) {
 		if (!stack.isEmpty()) {
 			stack.clear();

@@ -13,6 +13,10 @@ public class RpnCalculator {
 	private Stack<Double> stack = new Stack<>();
 	private Stack<List<Double>> logStack = new Stack<>();
 
+	/**
+	 * Do operation according to users' input of RPN expression.
+	 * @param rpnExpression Reverse Polish Notation expression.
+	 */
 	public void process(String rpnExpression) {
 		if (rpnExpression.trim().equals("")) {
 			return;
@@ -38,7 +42,11 @@ public class RpnCalculator {
 		}
 	}
 
-	
+	/**
+	 * Get a snapshot of the current status of the working stack, and save to a log stack for undo operation.
+	 * @param stack The working stack that saves calculated result.
+	 * @param logStack The log stack that saves the history of the working stack.
+	 */
 	public static void snapshotStack(Stack<Double> stack, Stack<List<Double>> logStack) {
 		List<Double> numList = new ArrayList<>();
 		for (Double num : stack) {
