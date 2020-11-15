@@ -1,9 +1,11 @@
-# RPN Calculator
+# Reverse Polish Notation (RPN) Calculator
 
 This project is a command-line based RPN calculator.
 
 - Basic math operators (+, -, *, /, sqrt)
 - Undo and clear functionality
+
+---
 
 ## Requirements
 
@@ -21,3 +23,14 @@ This project is a command-line based RPN calculator.
 - All numbers should be formatted as plain decimal strings (ie. no engineering formatting).
 - If an operator cannot find a sufficient number of parameters on the stack, a warning is displayed: *operator <operator> (position: <pos>): insufficient parameters*
 - After displaying the warning, all further processing of the string terminates and the current state of the stack is displayed.
+
+---
+
+## How to Use
+
+1. Download or clone the repository. 
+2. Build the project. Go to directory `rpn-calculator/src/main/resources/script`, execute `sh build.sh` in cmd. 
+3. Start the project. Go to directory `rpn-calculator/target/appassembler/bin`. 
+
+    3.1 For Windows platform, double click `start.bat`.
+    3.2 For Linux platform, execute `sh start.sh` in cmd. 
