@@ -1,14 +1,17 @@
 package com.airwallex.rpncalculator;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.Properties;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 public class Utils {
-
+	private static Logger logger = LoggerFactory.getLogger(Utils.class);
+	
 	public static final String UNARY = "unary";
 	public static final String BINARY = "binary";
 	public static final String FUNCTIONAL = "functional";
@@ -28,7 +31,8 @@ public class Utils {
 	static {
 		try {
 			properties.load(inputStream);
-		} catch (IOException e) {
+		} catch (Exception e) {
+			logger.error(e.toString());
 			System.exit(1);
 		}
 	}
