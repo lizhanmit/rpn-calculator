@@ -40,6 +40,48 @@
 			<artifactId>log4j-slf4j-impl</artifactId>
 			<version>2.14.0</version>
 		</dependency>
-
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>appassembler-maven-plugin</artifactId>
+				<version>2.1.0</version>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>assemble</goal>
+						</goals>
+					</execution>
+				</executions>
+
+				<configuration>
+					<repositoryLayout>flat</repositoryLayout>
+					<configurationDirectory>conf</configurationDirectory>
+					<configurationSourceDirectory>src/main/resources</configurationSourceDirectory>
+					<copyConfigurationDirectory>true</copyConfigurationDirectory>
+					<includeConfigurationDirectoryInClasspath>true</includeConfigurationDirectoryInClasspath>
+					<assembleDirectory>${project.build.directory}/appassembler</assembleDirectory>
+					<extraJvmArguments>-Xms128m</extraJvmArguments>
+					<binFileExtensions>
+						<unix>.sh</unix>
+					</binFileExtensions>
+					<platforms>
+						<platform>windows</platform>
+						<platform>unix</platform>
+					</platforms>
+					<repositoryName>lib</repositoryName>
+					<programs>
+						<program>
+							<mainClass>com.airwallex.rpncalculator.Main</mainClass>
+							<name>start</name>
+						</program>
+					</programs>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
