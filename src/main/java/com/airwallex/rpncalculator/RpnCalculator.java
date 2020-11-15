@@ -36,12 +36,6 @@ public class RpnCalculator {
 				} 
 			}
 		}
-		
-		printStack(stack);
-		
-		if (Utils.getValueFromConfigFile("debug").equals("true")) {
-			System.out.println("logStack: " + logStack);
-		}
 	}
 
 	
@@ -53,10 +47,10 @@ public class RpnCalculator {
 		logStack.push(numList);
 	}
 
-	private static void printStack(Stack<Double> stack) {
+	public void printStack() {
 		System.out.print("stack: ");
-		if (!stack.isEmpty()) {
-			for (Double num : stack) {
+		if (!this.stack.isEmpty()) {
+			for (Double num : this.stack) {
 				System.out.print(Utils.formatNumber(num) + " ");
 			}
 		}

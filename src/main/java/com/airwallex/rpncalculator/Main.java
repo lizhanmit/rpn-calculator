@@ -14,6 +14,11 @@ public class Main {
 			Scanner scanner = new Scanner(System.in);
 			String rpnExpression = scanner.nextLine();
 			rpnCalculator.process(rpnExpression);
+			rpnCalculator.printStack();
+			
+			if (Utils.getValueFromConfigFile("debug").equals("true")) {
+				System.out.println("logStack: " + rpnCalculator.getLogStack());
+			}
 		}
 	}
 }
